@@ -3,6 +3,8 @@ import 'package:chatgpt_client/models/chat_message.dart';
 import 'package:chatgpt_client/widgets/message_bubble.dart';
 import 'package:chatgpt_client/widgets/message_composer.dart';
 import 'package:flutter/material.dart';
+import 'package:logging/logging.dart';
+
 
 class ChatPage extends StatefulWidget {
   const ChatPage({
@@ -25,7 +27,7 @@ class _ChatPageState extends State<ChatPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Chat')),
+      appBar: AppBar(title: const Text('AI Chat')),
       body: Column(
         children: [
           Expanded(
@@ -61,6 +63,7 @@ class _ChatPageState extends State<ChatPage> {
         _awaitingResponse = false;
       });
     } catch (err) {
+      print(err);
       ScaffoldMessenger.of(context).showSnackBar(
         const SnackBar(content: Text('An error occurred. Please try again.')),
       );
