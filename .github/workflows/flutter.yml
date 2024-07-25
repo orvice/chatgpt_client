@@ -25,5 +25,6 @@ jobs:
         with:
           flutter-version: '3.22.3'
       - run: flutter pub get
+      - run: cp lib/secrets_example.dart lib/secrets.dart
       - run: flutter build apk
       - run: flutter build appbundle
